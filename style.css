@@ -1,0 +1,4 @@
+.strikethrough span, .strikethrough a {
+    color: red !important;
+    text-decoration: red line-through
+}
