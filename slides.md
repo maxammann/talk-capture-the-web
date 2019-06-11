@@ -1,25 +1,23 @@
 ---
-author: maxammann
-title: ctw - capture the web
+author: "@maxammann"
+title: ctw <br> capture the web
 date: 11. Juni, 2019
 theme: black
 transition: none 
 slideNumber: true
-header-includes: <script src="http://localhost:35729/livereload.js?snipver=1"></script>
+header-includes: <script data-external="1" src="http://localhost:35729/livereload.js?snipver=1"></script>
 ---
 
 # Lets talk about files
 
 ---
 
-
-
 ```bash
 wget "https://www.alchemistowl.org/pocorgtfo/pocorgtfo03.pdf"
 firefox "pocorgtfo03.pdf"
 ```
 
-![](./wats/pdf.png){height=400px}
+![](./figures/intro/pdf.png){height=400px}
 
 <span style="position: absolute; bottom: 5px; right: 5px; font-size: 20px">Quelle: PoC||GTFO 0x03</span>
 
@@ -32,7 +30,7 @@ firefox "pocorgtfo03.jpg"
 
 . . .
 
-![](./wats/jpg.png){height=400px}
+![](./figures/intro/jpg.png){height=400px}
 
 ---
 
@@ -54,25 +52,26 @@ unzip "pocorgtfo03.pdf" -d "unzipped/"
 
 ---
 
-<video src="./wats/watcat-title.mp4" height="400" data-autoplay loop nocontrols>
+<video src="./figures/intro/watcat-title.mp4" height="400" data-autoplay loop nocontrols>
 
 ---
 
+```python
+aes = AES.new(...)
+output = aes.encrypt(read('pocorgtfo03.pdf'))
+```
+
 ```bash
-file --brief "unzipped/pocorgtfo03-encrypt.py"
-Python script, ASCII text executable
 python2 "unzipped/pocorgtfo03-encrypt.py"
-firefox "enc-pocorgtfo03.pdf.png"
 ```
 
 . . . 
 
-![](./wats/png.png){height=350px}
+![](./figures/intro/png.png){height=320px}
 
 ---
 
 <video src="./figures/doggy_wat.mp4" height="300" data-autoplay loop nocontrols>
-
 
 ---
 
@@ -83,9 +82,7 @@ aplay -r 22050 -f S16_LE "pocorgtfo03.pdf"
 
 . . . 
 
-<object type="image/svg+xml" data="./wats/spec.svg">
-  Your browser does not support SVG
-</object>
+![](./figures/intro/spec.svg){height=350px}
 
 
 <div class="notes">
@@ -161,7 +158,7 @@ xmlhttp.send(JSON.stringify({
 
 . . .
 
-![](./xss/simple-a.png){height=300px}
+![](./figures/xss/simple-a.png){height=300px}
 
 ---
 
@@ -169,7 +166,7 @@ xmlhttp.send(JSON.stringify({
 
 . . .
 
-![](./xss/simple-b.png){height=300px}
+![](./figures/xss/simple-b.png){height=300px}
 
 ---
 
@@ -192,7 +189,6 @@ div = document.createElement("div")
 div.innerHTML = template.innerHTML
 ```
 
-
 ---
 
 ```js
@@ -201,7 +197,7 @@ template.innerHTML = '<noscript><p title="</noscript>' +
     '<img src=x onerror=alert("XSS")>">'
 ```
 
-![](./xss/template.png){height=200px}
+![](./figures/xss/template.png){height=200px}
 
 ---
 
@@ -213,7 +209,7 @@ div.innerHTML = template.innerHTML
 . . .
 
 
-<video onplay="alert('XSS')" src="./xss/hacked.mp4" height="200" data-autoplay loop nocontrols>
+<video onplay="alert('XSS')" src="./figures/xss/hacked.mp4" height="200" data-autoplay loop nocontrols>
 
 ---
 
@@ -223,7 +219,7 @@ div.innerHTML = '<noscript><p title="</noscript>' +
     '<img src=x onerror=alert("XSS")>">'
 ```
 
-![](./xss/div.png){height=200px}
+![](./figures/xss/div.png){height=200px}
 
 ---
 
@@ -233,8 +229,10 @@ div.innerHTML = '<noscript><p title="</noscript>' +
 ```
 </sup>
 
-![DOM Tree für `<template>`](./xss/template.png){height=160px}
-![DOM Tree für `<div>`](./xss/div.png){height=160px}
+\vfill
+
+![DOM Tree für `<template>`](./figures/xss/template.png){height=160px}
+![DOM Tree für `<div>`](./figures/xss/div.png){height=160px}
 
 **Der DOM Tree ist je nach Kontext unterschiedlich, obwohl der ursprüngliche HTML-Code der gleiche ist!**
 
@@ -248,18 +246,35 @@ div.innerHTML = '<noscript><p title="</noscript>' +
 </style>
 
 <blockquote>
-4.12.2 The noscript element \
 The noscript element represents **nothing if scripting is enabled**, and represents its **children if scripting is disabled**.
 </blockquote>
 
 Da in einem `<template>` tag scripting deaktiviert ist, werden unterschiedliche DOM Trees gebaut.
 
+
+
+<span style="position: absolute; bottom: 5px; right: 5px; font-size: 20px">Quelle: https://www.w3.org/TR/html52/semantics-scripting.html#the-noscript-element</span>
+
 ---
 
-* Vulnerability bestand in der Google Suche für 4 Monate! ([git commit](https://github.com/google/closure-library/commit/c79ab48e8e962fee57e68739c00e16b9934c0ffa))
-* **Severity: <font color=red>Very High <i class="fas fa-bolt"></i></font>**
+**Severity: <font color=red>Very High <i class="fas fa-bolt"></i></font>**
+
+. . .
+
+![](./figures/xss/google.png){height=300px}
+
+Vulnerability bestand in der Google Suche für 4 Monate! 
+
+([git commit](https://github.com/google/closure-library/commit/c79ab48e8e962fee57e68739c00e16b9934c0ffa))
 
 ---
+
+![Google Vulnerability Reward Program payouts in 2018](./figures/google_vuln_stats.png)
+
+<span style="position: absolute; bottom: 5px; right: 5px; font-size: 20px">Quelle: Google I/O 2019: Securing Web Apps with Modern Platform Features </span>
+
+---
+
 
 ## `Content-Security-Policy` to the rescue
 
@@ -279,6 +294,11 @@ Content-Security-Policy:  default-src 'self';
 ```
 Verbietet inlinen von JavaScript und lässt nur bestimmte Quellen zu.
 
+```html
+<img src=x onerror=alert("XSS")>  // Inlined
+<script>alert("XSS")</script>     // Not inlined
+```
+
 ---
 
 ```js
@@ -286,7 +306,6 @@ Content-Security-Policy:  script-src 'nonce-r4nd0m';
                           img-src *;
 ```
 
-Geblockt von CSP: 
 <div class="strikethrough">
 ```html
 <img src=x onerror=alert("XSS")>
@@ -295,35 +314,76 @@ Geblockt von CSP:
 </div>
 
 . . .
-
-Erlaubt: 
+ 
 ```html
 <script nonce="nonce-r4nd0m">alert("XSS")</script>
 <script nonce="nonce-r4nd0m" 
         src="https://cdn/lib.js"></script>
 ```
-<font color=red>Hinweis: Erstetzt nicht das beheben von Fehlern!</font>
 
 ---
 
-![](./figures/support.png)
+### Draft Preview: Trusted Types
+
+
+Wie sieht eine typische XSS aus?
+
+```js
+// e.g. foo = <script>alert("XSS")</script>
+const foo = location.hash.slice(1) 
+const element = document.querySelector('#foo')
+element.innerHTML = foo
+```
 
 ---
 
-![Google Vulnerability Reward Program payouts in 2018](./google_vuln_stats.png)
+<div class="strikethrough">
+```js
+element.innerHTML = foo
+```
+</div>
+
+![](./figures/xss/trusted-type-error.png){height=150px}
+
+```js
+element.innerHTML = Policy.createHTML(foo)
+```
+
+Idee: <font color="red">String</font> $\rightarrow$ <font color="green">TrustedHTML</font>
+
+---
+
+1. CSP Richtlinie setzten
+```js
+Content-Security-Policy: trusted-types myPolicy
+```
+
+1. Sanitizer angeben
+```js
+const Policy = TrustedTypes.createPolicy('myPolicy', {
+     createHTML(s: string) => myCustomSanitizer(s)
+}, false)
+```
+
+2. HTML sanitizen
+```js
+element.innerHTML = Policy.createHTML(foo)
+```
 
 ---
 
 # Was sind CTFs?
 
-* Capture the Flag sind Wettkämpfe
-* Trainiert Frusttoleranz
+* Capture the Flags sind Puzzle
+* Mit dem finden eines Exploits kann man die Flagge erobern
 * Anfänger: Ausnutzen eines Buffer-Overflow
 * Profi: Finden iner Zero-Day in Safari 🤯
+* Trainiert Frusttoleranz
 
 ---
 
-## Grab a beer and ctf!
+#### Grab a beer and ctf!
+<div class="safespace">
 ```php
 <?php
 if (empty($_POST['hmac']) || empty($_POST['host'])) {
@@ -339,10 +399,34 @@ if ($hmac !== $_POST['hmac']) {
 echo exec("host ".$_POST['host']);
 ?>
 ```
-<span style="position: absolute; bottom: 5px; right: 5px; font-size: 20px">Quelle: www.securify.nl/en/blog/SFY20180101/spot-the-bug-challenge-2018-warm-up.html</span>
+<span style="font-size: 10px">Quelle: www.securify.nl/en/blog/SFY20180101/spot-the-bug-challenge-2018-warm-up.html</span>
 
 <sub>
 <i class="far fa-envelope"></i> [maxammann.org/contact](https://maxammann.org/contact)
 <i class="fas fa-code"></i> [github.com/maxammann](https://github.com/maxammann)
+
+<i class="fas fa-industry"></i> [digitalfabrik](https://tuerantuer.de/digitalfabrik/)
+
 </sub>
+</div>
  
+---
+
+```js
+ReactDOM.render(
+  <a href="javascript: alert(1)">Click me!</a>,
+ document.getElementById('container')
+)
+```
+
+---
+
+```php
+$hmac = hash_hmac('sha256', Array(), "SecretKey");
+```
+
+---
+
+XSS Vektoren: https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
+
+---

@@ -2,3 +2,12 @@
     color: red !important;
     text-decoration: red line-through
 }
+
+.reveal .safespace .sourceCode {
+    margin: 10px 0;
+}
+
+
+.reveal .safespace p {
+    margin: 10px 0;
+}
